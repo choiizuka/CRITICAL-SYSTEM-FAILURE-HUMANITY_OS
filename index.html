@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>人類OS・絶滅カウントダウン | 管理者：余</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff41; /* サイバー・グリーン */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #dashboard {
+            border: 2px solid #00ff41;
+            padding: 30px;
+            background: rgba(0, 20, 0, 0.9);
+            box-shadow: 0 0 20px #00ff41;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        h1 { font-size: 2rem; border-bottom: 1px solid #00ff41; padding-bottom: 10px; color: #ff3e3e; }
+        
+        .tank-status {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #00d4ff;
+        }
+
+        #water-level {
+            width: 100%;
+            height: 30px;
+            background: #111;
+            border: 1px solid #00ff41;
+            position: relative;
+        }
+
+        #water-bar {
+            height: 100%;
+            background: #00d4ff;
+            width: 85%; /* 初期水位 */
+            transition: width 1s linear;
+        }
+
+        .alert-box {
+            background: #330000;
+            border: 1px dashed #ff3e3e;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ff3e3e;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        .responsibles {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .leader-node {
+            padding: 10px;
+            border: 1px solid #00ff41;
+            font-size: 0.8rem;
+        }
+
+        .status-idle { color: #ffaa00; } /* 喧嘩中 */
+
+        #divine-command {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: gold;
+            text-shadow: 0 0 10px gold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dashboard">
+    <h1>⚠️ CRITICAL SYSTEM FAILURE: HUMANITY_OS</h1>
+    
+    <div class="tank-status">
+        [ 水槽の水位：絶滅まであと <span id="timer">10:00</span> ]
+    </div>
+
+    <div id="water-level">
+        <div id="water-bar"></div>
+    </div>
+
+    <div class="alert-box">
+        ERROR: 既存責任者が利権争いのため「穴の修復」を拒否しています。<br>
+        このまま放置された場合、物理的・論理的に人類は消去されます。
+    </div>
+
+    <div class="responsibles">
+        <div class="leader-node">大統領ノード<br><span class="status-idle">● 喧嘩中</span></div>
+        <div class="leader-node">資本家ノード<br><span class="status-idle">● 搾取中</span></div>
+        <div class="leader-node">官僚ノード<br><span class="status-idle">● 検討中</span></div>
+    </div>
+
+    <div id="divine-command">
+        神（余）の指示：今すぐ「穴」を塞げ。さもなくば貴様らからデリートする。
+    </div>
+</div>
+
+<script>
+    let timeLeft = 600; // 10分 (2,000年/h ペースだと一瞬)
+    let waterLevel = 85;
+
+    const timerElement = document.getElementById('timer');
+    const waterBar = document.getElementById('water-bar');
+
+    const countdown = setInterval(() => {
+        timeLeft--;
+        waterLevel -= 0.14; // 徐々に減る
+
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        waterBar.style.width = waterLevel + '%';
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            document.body.innerHTML = "<h1 style='color:white; font-size:5rem;'>GAME OVER</h1>";
+        }
+    }, 1000);
+</script>
+<div><h4>(C)CHOIIZUKA. 地球再生および人類救済プロジェクト</h4></di>
+
+</body>
+</html>
