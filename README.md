@@ -4,4 +4,5 @@
 Alert for human extinction
 
 人類絶滅の危機をアナウンスするガイドカウントダウンプログラム
-https://choiizuka.github.io/CRITICAL-SYSTEM-FAILURE-HUMANITY_OS/(https://choiizuka.github.io/CRITICAL-SYSTEM-FAILURE-HUMANITY_OS/)
+
+https://choiizuka.github.io/CRITICAL-SYSTEM-FAILURE-HUMANITY_OS/
