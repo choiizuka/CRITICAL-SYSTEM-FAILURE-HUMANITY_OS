@@ -3,3 +3,5 @@
 # CRITICAL-SYSTEM-FAILURE-HUMANITY_OS
 Alert for human extinction
 
+人類絶滅の危機をアナウンスするガイドカウントダウンプログラム
+
